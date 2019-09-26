@@ -34,7 +34,7 @@ namespace Task.Model
 
         public override string ToString()
         {
-            return "[" + Speed + "]";
+             return $"[{Speed}]";
         }
 
         public void Work()
