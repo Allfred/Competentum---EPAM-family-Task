@@ -24,13 +24,13 @@ namespace Task.Model
                 if (human is Woman)
                 {
                     var obj = this.OrderBy(x => x.GetAllHumans()).First();
-                    index = this.IndexOf(obj);
+                    index = IndexOf(obj);
                     this[index].HumansQueue.Enqueue(human);
                 }
                 else
                 {
                     var obj = this.OrderBy(x => x.GetAllSteps()).First();
-                    index = this.IndexOf(obj);
+                    index = IndexOf(obj);
                     this[index].HumansQueue.Enqueue(human);
                 }
             }
@@ -40,10 +40,7 @@ namespace Task.Model
 
         public void Display(int indexLastTill)
         {
-            for (int i = 0; i < this.Count; i++)
-            {
-                this[i].Display(indexLastTill==i);
-            }
+            for (var i = 0; i < Count; i++) this[i].Display(indexLastTill == i);
         }
     }
 }

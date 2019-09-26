@@ -17,23 +17,20 @@ namespace Task.Model
         {
             if (TillsList.Count == 0 || steps == 0) Console.WriteLine("Магазин не работает");
             var totalSeconds = DateTime.Now.Subtract(DateTime.MinValue).TotalSeconds;
-            var rand = new Random((int)totalSeconds);
+            var rand = new Random((int) totalSeconds);
 
-            int indexOfLastTill = 0;
-            foreach (var item in HumansQueue)
-            {
-                indexOfLastTill = TillsList.AddHuman(item,rand);
-            }
-            
-          
+            var indexOfLastTill = 0;
+            foreach (var item in HumansQueue) indexOfLastTill = TillsList.AddHuman(item, rand);
+
+
             for (var i = 0; i < steps; i++)
             {
                 TillsList.Work();
 
                 var human = CreateNewHuman(rand);
-                indexOfLastTill=TillsList.AddHuman(human, rand);
-
+                indexOfLastTill = TillsList.AddHuman(human, rand);
             }
+
             TillsList.Display(indexOfLastTill);
         }
 
