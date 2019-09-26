@@ -39,16 +39,31 @@ namespace Task.Model
 
         public void Work()
         {
-            HumansQueue.Peek().CountProduct = HumansQueue.Peek().CountProduct - Speed;
-            if (HumansQueue.Peek().CountProduct <= 0) HumansQueue.Dequeue();
+            if (HumansQueue.Count > 0)
+            {
+                HumansQueue.Peek().CountProduct = HumansQueue.Peek().CountProduct - Speed;
+                if (HumansQueue.Peek().CountProduct <= 0)
+                {
+                    HumansQueue.Dequeue();
+                }
+            }
         }
 
         public void Display(bool b)
         {
             Console.Write(this + " ");
-            foreach (var item in HumansQueue) Console.Write(item + " ");
-            if (b) Console.Write("*");
+            foreach (var item in HumansQueue)
+            {
+                Console.Write(item + " ");
+            }
+
+            if (b)
+            {
+                Console.Write("*");
+            }
             Console.WriteLine();
+
+
         }
     }
 }

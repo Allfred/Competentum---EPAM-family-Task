@@ -40,7 +40,11 @@ namespace Task.Model
 
         public void Display(int indexLastTill)
         {
-            for (var i = 0; i < Count; i++) this[i].Display(indexLastTill == i);
+            for (var i = 0; i < Count; i++)
+            {
+                this[i].Display(indexLastTill == i);
+            }
         }
+
     }
 }
